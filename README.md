@@ -1,6 +1,6 @@
 # Hive pg_dump format support
 
-This SerDe adds support for reading pg_dump ouput (data only)
+This SerDe adds support for reading pg_dump plain ouput. It does not support skipping header/footer lines. Header/footer data will have to be manually removed. Other alternative is to use `COPY` command to generated text format output.
 
 ## Using
 
