@@ -5,7 +5,7 @@ This SerDe adds support for reading pg_dump plain ouput. It does not support ski
 ## Using
 
 ```
-hive> add jar path/to/pgdump-serde-1.0.1-1.2.0-all.jar;
+hive> add jar path/to/pgdump-serde-1.0.2-1.2.0-all.jar;
 
 hive> create table my_table(a integer, b string, ...)
   row format serde 'com.pasam.hive.serde.pg.PgDumpSerDe'
@@ -15,7 +15,7 @@ hive> create table my_table(a integer, b string, ...)
 
 ## Files
 
-* [pgdump-serde-1.0.1-1.2.0-all.jar](https://github.com/spasam/pgdump-serde/releases/download/1.0.1/pgdump-serde-1.0.1-1.2.0-all.jar)
+* [pgdump-serde-1.0.2-1.2.0-all.jar](https://github.com/spasam/pgdump-serde/releases/download/1.0.2/pgdump-serde-1.0.2-1.2.0-all.jar)
 
 
 ## Building

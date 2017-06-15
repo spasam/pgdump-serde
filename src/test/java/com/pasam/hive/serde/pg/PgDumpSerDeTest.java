@@ -22,7 +22,7 @@ public final class PgDumpSerDeTest {
     @Before
     public void setup() throws Exception {
         props.put(serdeConstants.LIST_COLUMNS,
-                "ttint,tsint,tint,tbint,tfloat,tdouble,tdecimal,tbtrue,tbfalse,ttstamp1,ttstamp2,ttstamp3,tstring,testring,tnstring,tmstring");
+                "ttint,tsint,tint,tbint,tfloat,tdouble,tdecimal,tbtrue,tbfalse,ttstamp1,ttstamp2,ttstamp3,tstring,tnstring,tmstring,testring");
         props.put(serdeConstants.LIST_COLUMN_TYPES,
                 "tinyint,smallint,int,bigint,float,double,decimal,boolean,boolean,timestamp,timestamp,timestamp,string,string,string,string");
     }
@@ -51,8 +51,8 @@ public final class PgDumpSerDeTest {
         assertTrue(row.get(10) instanceof Timestamp);
         assertTrue(row.get(11) instanceof Timestamp);
         assertEquals("Hello Seshu", row.get(12));
-        assertEquals("", row.get(13));
-        assertEquals(null, row.get(14));
-        assertEquals("A\tB\\tC\nD\\nE\\rF\nG\\H\\I\\\\J\n", row.get(15));
+        assertEquals(null, row.get(13));
+        assertEquals("A\tB\\tC\nD\\nE\\rF\nG\\H\\I\\\\J\n", row.get(14));
+        assertEquals("", row.get(15));
     }
 }

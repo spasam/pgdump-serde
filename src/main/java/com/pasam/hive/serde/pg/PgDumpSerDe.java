@@ -80,9 +80,10 @@ public class PgDumpSerDe
     @Override
     public Object deserialize(final Writable blob) throws SerDeException {
         Text rowText = (Text) blob;
-        String[] read = rowText.toString().split("\t");
+        String[] read = rowText.toString().split("\t", -1);
         if (read == null || read.length < numCols) {
-            throw new SerDeException("Error reading row: " + blob);
+            throw new SerDeException("Error reading row. Read " + read.length + " columns. Expected: " + numCols
+                + ". Data: " + blob);
         }
 
         for (int i = 0; i < numCols; i++) {
