@@ -36,7 +36,7 @@ import org.apache.hadoop.io.Writable;
 public class PgDumpSerDe
         extends AbstractSerDe {
     private static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern(
-            "yyyy[[-][/]]MM[[-][/]]dd[['T'][ ]]HH:mm:ss[[ ][.SSS]][XXX][X]");
+            "yyyy[[-][/]]MM[[-][/]]dd[['T'][ ]]HH:mm:ss[[ ][.SSS][.S]][XXX][X]");
 
     private ObjectInspector inspector;
     private List<TypeInfo> columnTypes;

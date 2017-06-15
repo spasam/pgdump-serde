@@ -22,9 +22,9 @@ public final class PgDumpSerDeTest {
     @Before
     public void setup() throws Exception {
         props.put(serdeConstants.LIST_COLUMNS,
-                "ttint,tsint,tint,tbint,tfloat,tdouble,tdecimal,tbtrue,tbfalse,ttstamp1,ttstamp2,ttstamp3,tstring,tnstring,tmstring,testring");
+                "ttint,tsint,tint,tbint,tfloat,tdouble,tdecimal,tbtrue,tbfalse,ttstamp1,ttstamp2,ttstamp3,ttstamp4,tstring,tnstring,tmstring,testring");
         props.put(serdeConstants.LIST_COLUMN_TYPES,
-                "tinyint,smallint,int,bigint,float,double,decimal,boolean,boolean,timestamp,timestamp,timestamp,string,string,string,string");
+                "tinyint,smallint,int,bigint,float,double,decimal,boolean,boolean,timestamp,timestamp,timestamp,timestamp,string,string,string,string");
     }
 
     @Test
@@ -37,7 +37,7 @@ public final class PgDumpSerDeTest {
         final Text in = new Text(reader.readLine());
         final List<?> row = (List<?>) serde.deserialize(in);
 
-        assertEquals(16, row.size());
+        assertEquals(17, row.size());
         assertEquals(new Byte((byte) 1), row.get(0));
         assertEquals(new Short((short) 100), row.get(1));
         assertEquals(new Integer(65536), row.get(2));
@@ -50,9 +50,10 @@ public final class PgDumpSerDeTest {
         assertTrue(row.get(9) instanceof Timestamp);
         assertTrue(row.get(10) instanceof Timestamp);
         assertTrue(row.get(11) instanceof Timestamp);
-        assertEquals("Hello Seshu", row.get(12));
-        assertEquals(null, row.get(13));
-        assertEquals("A\tB\\tC\nD\\nE\\rF\nG\\H\\I\\\\J\n", row.get(14));
-        assertEquals("", row.get(15));
+        assertTrue(row.get(12) instanceof Timestamp);
+        assertEquals("Hello Seshu", row.get(13));
+        assertEquals(null, row.get(14));
+        assertEquals("A\tB\\tC\nD\\nE\\rF\nG\\H\\I\\\\J\n", row.get(15));
+        assertEquals("", row.get(16));
     }
 }
