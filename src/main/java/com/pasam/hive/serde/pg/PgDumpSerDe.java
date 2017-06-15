@@ -86,7 +86,7 @@ public class PgDumpSerDe
         }
 
         for (int i = 0; i < numCols; i++) {
-            if (read[i] == "\\N") {
+            if ("\\N".equalsIgnoreCase(read[i])) {
                 row.set(i, null);
                 continue;
             }
